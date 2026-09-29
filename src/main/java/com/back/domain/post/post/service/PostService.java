@@ -25,10 +25,28 @@ public class PostService {
 
     public List<Post> findAll() {
         return postRepository.findAll();
-
+    }
     //public Optional<Post> findById(String id) {
     public Post findById(String id) {
-        return postRepository.findById(id).orElseThrow(()->new NotFoundException("Post not found with id: " + id));
+        return postRepository.findById(id)
+                .orElseThrow(()->new NotFoundException("Post not found with id: " + id));
+    }
+
+    public Post update(String id, String title, String content) {
+        Post post = findById(id);
+        if (title != null){
+            post.setTitle(title);
+        }
+        if (content != null){
+            post.setContent(content);
+        }
+        post.setLastModifiedAt(java.time.OffsetDateTime.now());
+        return postRepository.save(post);
+    }
+
+    public void delete(String id) {
+        Post post = findById(id);
+        postRepository.delete(post);
     }
 
 }
