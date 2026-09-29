@@ -1,4 +1,4 @@
-package com.back.global.BaseDocument;
+package com.back.global;
 
 import lombok.Getter;
 import lombok.ToString;

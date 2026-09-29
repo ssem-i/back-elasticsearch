@@ -1,6 +1,6 @@
 package com.back.domain.post.post.document;
 
-import com.back.global.BaseDocument.BaseDocument;
+import com.back.global.BaseDocument;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
