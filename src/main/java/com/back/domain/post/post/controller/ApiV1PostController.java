@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/posts")
 @RequiredArgsConstructor
@@ -41,5 +43,10 @@ public class ApiV1PostController {
     @RequestMapping
     public List<Post> findAll(){
         return postService.findAll();
+    }
+
+    @RequestMapping("/{id}")
+    public Post findById(@PathVariable String id) {
+        return postService.findById(id);
     }
 }
