@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.back.domain.post.post.service.PostService;
+import com.back.domain.post.post.document.Post;
 
 @Configuration
 @Slf4j
