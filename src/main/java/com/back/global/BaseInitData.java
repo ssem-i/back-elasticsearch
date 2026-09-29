@@ -1,5 +1,6 @@
 package com.back.global;
 
+import com.back.domain.post.comment.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
@@ -14,6 +15,7 @@ import com.back.domain.post.post.document.Post;
 public class BaseInitData {
 
     private final PostService postService;
+    private final CommentService commentService;
 
     @Bean
     public ApplicationRunner baseInitDataRunner (){
@@ -23,6 +25,7 @@ public class BaseInitData {
             work3();
             work4();
             work5();
+            work6();
         };
     }
 
@@ -72,5 +75,9 @@ public class BaseInitData {
             log.debug("Deleted Post: {}", post.getId());
         }
         log.debug("삭제 후 Post 개수: {}", postService.count());
+    }
+
+    private void work6() {
+        log.debug("Comment 개수: {}", commentService.count());
     }
 }
